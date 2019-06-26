@@ -1,16 +1,31 @@
-* Installation
-  - Clone the code
-  - Install dependencies using composer
-  #+BEGIN_SRC sh
-  composer install
-  #+END_SRC
-  - Rename .env.example to .env and modify the values according to your needs
-  - Switch to your module folder
-  - Migrate Database tables
-    #+BEGIN_SRC sh
+# Installation
+
+-  Clone the code
+-  Install dependencies using composer
+    ```sh
+    composer install
+    ```
+-  Rename .env.example to .env and modify the values according to your needs
+-  Migrate Database tables
+    ```sh
      - php artisan migrate
-    #+END_SRC
-  - Seed Tables
-    #+BEGIN_SRC sh
-     - php artisan db:seed
-    #+END_SRC
+    ```
+- Seed Tables
+    ```sh
+        php artisan db:seed
+    ```
+- Cache Clear
+    ```sh
+        php artisan cache:clear
+        php artisan config:clear
+    ```
+- Creating New Model
+    ```sh
+        php artisan infyom:model ModelName --fromTable --tableName=table_name
+        eg: php artisan infyom:model WeekDay --fromTable --tableName=week_days
+    ```
+- Genearte Graph QL Generators
+    ```sh
+        php artisan graphql:generate [type,query,mutation] [ModelName]
+        eg: php artisan graphql:generate [type,query,mutation] [WeekDay]
+    ```
